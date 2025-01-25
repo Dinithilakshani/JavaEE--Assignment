@@ -1,6 +1,7 @@
-package org.example.demo2.custom;
+package org.example.demo2.DAO.custom;
 
 
+import org.example.demo2.DAO.CrudDAO;
 import org.example.demo2.Entity.OrderDetail;
 
 import java.util.List;

@@ -1,10 +1,10 @@
-package org.example.demo2.custom.impl;
+package org.example.demo2.DAO.custom.impl;
 
 
 
 import org.example.demo2.Entity.OrderDetail;
 import org.example.demo2.config.SessionFactoryConfig;
-import org.example.demo2.custom.OrderDetailDAO;
+import org.example.demo2.DAO.custom.OrderDetailDAO;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;

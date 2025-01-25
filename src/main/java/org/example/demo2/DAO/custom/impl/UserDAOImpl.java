@@ -1,11 +1,12 @@
-package org.example.demo2.custom.impl;
+package org.example.demo2.DAO.custom.impl;
 
 
 import org.example.demo2.Entity.User;
 import org.example.demo2.config.SessionFactoryConfig;
-import org.example.demo2.custom.UserDAO;
+import org.example.demo2.DAO.custom.UserDAO;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -17,14 +18,17 @@ public class UserDAOImpl implements UserDAO {
             Transaction transaction = session.beginTransaction();
             session.persist(user);
             transaction.commit();
+            return true;
 
         }
-        return false;
+        catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public void update(User user) {
-
         try (Session session = SessionFactoryConfig.getInstance().getSession()){
             Transaction transaction = session.beginTransaction();
             session.merge(user);
@@ -35,7 +39,6 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void delete(String id) {
-
         try (Session session = SessionFactoryConfig.getInstance().getSession()){
             Transaction transaction = session.beginTransaction();
             User user = session.get(User.class,id);
@@ -48,16 +51,31 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User findById(String id) {
-        return null;
+        try(Session session = SessionFactoryConfig.getInstance().getSession()) {
+
+            return session.get(User.class, id);
+
+        }
+
     }
 
     @Override
     public List<User> getAll() {
-        return null;
+        try (Session session = SessionFactoryConfig.getInstance().getSession()){
+            Query<User> query = session.createQuery("FROM User ",User.class);
+            return query.list();
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public User findByUserName(String userName) {
-        return null;
+        try (Session session = SessionFactoryConfig.getInstance().getSession()){
+            Query<User> query = session.createQuery("from User where username = :username", User.class);
+            query.setParameter("username", userName);
+            return query.uniqueResult();
+        }
     }
 }

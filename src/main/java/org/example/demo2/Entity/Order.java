@@ -20,16 +20,16 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false) // Maps to the user_id column in the orders table
+    private User user;
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date orderDate;
 
     @Column(nullable = false)
-    private double total_price;
+    private double totalPrice;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -42,6 +42,5 @@ public class Order {
         PENDING, PROCESSING, SHIPPED, DELIVERED, CANCELLED
     }
 
-    // Getters and setters...
+    // Getters and setters if needed...
 }
-

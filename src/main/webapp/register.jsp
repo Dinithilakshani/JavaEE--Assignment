@@ -41,11 +41,27 @@
 <div class="container my-5">
     <div class="form-container">
         <h2 class="mb-4">Customer Registration</h2>
-        <form action="register" method="post">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+        <form action="user-registration-servlet" method="post">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <input type="text" id="firstName" name="firstName" class="form-control form-control-lg" required />
+                        <label class="form-label" for="firstName">First Name</label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <input type="text" id="lastName" name="lastName" class="form-control form-control-lg" required />
+                        <label class="form-label" for="lastName">Last Name</label>
+                    </div>
+                </div>
             </div>
+
+            <div class="form-outline mb-4">
+                <input type="text" id="username" name="username" class="form-control form-control-lg" required />
+                <label class="form-label" for="username">Username</label>
+            </div>
+
             <div class="form-outline mb-4">
                 <label class="form-label" for="userType">User Type</label>
                 <select id="userType" name="userType" class="form-select form-select-lg" required>
@@ -54,32 +70,62 @@
                     <option value="customer">Customer</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+
+            <div class="form-outline mb-4">
+                <input type="email" id="email" name="email" class="form-control form-control-lg" required />
+                <label class="form-label" for="email">Email Address</label>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter a password">
+
+            <div class="form-outline mb-4">
+                <input type="password" id="password" name="password" class="form-control form-control-lg" required />
+                <label class="form-label" for="password">Password</label>
             </div>
-            <div class="form-group">
-                <label for="password">Password Comform</label>
-                <input type="password" class="form-control" id="passwordComform" placeholder="Enter a password">
+
+            <div class="form-outline mb-4">
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control form-control-lg" required />
+                <label class="form-label" for="confirmPassword">Confirm Password</label>
             </div>
-            <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+
+            <div class="form-outline mb-4">
+                <input type="text" id="address" name="address" class="form-control form-control-lg" required />
+                <label class="form-label" for="address">Address</label>
             </div>
-            <div class="form-group">
-                <label for="address">Address</label>
-                <textarea class="form-control" id="address" rows="3" placeholder="Enter your address"></textarea>
+
+            <div class="form-outline mb-4">
+                <input type="date" id="dob" name="dob" class="form-control form-control-lg" required />
+                <label class="form-label" for="dob">Date of Birth</label>
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+
+            <div class="d-flex justify-content-end pt-3">
+                <button type="reset" class="btn btn-light btn-lg">Reset</button>
+                <button type="submit" class="btn btn-outline-primary btn-lg ms-2">Submit</button>
+            </div>
         </form>
     </div>
 </div>
-                                <%%>
-</body>
-</html>
+        <%
+    if (saveSuccessful !=null){%>
+    <!-- Toast Container -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <%=saveSuccessful%>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+        <%}%>
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const toastElement = document.getElementById('successToast');
+            const toast = new bootstrap.Toast(toastElement, { delay: 10000 });
+            toast.show();
+        });
+    </script>
 </body>
 </html>

@@ -150,24 +150,18 @@
         </div>
 
 
+
         <div class="col-md-6 col-lg-3">
             <div class="product-card">
                 <button class="favorite-btn">♡</button>
-                <a href="girl2.jsp">                <img src="imges/img_34.png" alt="Tissot Watch with Light Blue Dial" class="product-image">
+                <a href="girl2.jsp">                <img src="imges/img_35.png" alt="Tissot Watch with Light Blue Dial" class="product-image">
                 </a>
                 <h5>PRX Powermatic 80</h5>
                 <p class="text-muted">Automatic</p>
             </div>
         </div>
 
-            <div class="product-card">
-                <button class="favorite-btn">♡</button>
-                <h5>PRX 35mm</h5>
-                <a href="girl3.jsp">                <img src="imges/img_35.png" alt="Tissot Watch with Dark Blue Dial" class="product-image">
-                </a>
-                <p class="text-muted">Quartz</p>
-            </div>
-        </div>
+
 
         <div class="col-md-6 col-lg-3">
             <div class="product-card">
@@ -202,11 +196,7 @@
                 </ul>
             </div>
 
-<<<<<<< HEAD
 
-=======
-            <!-- Contact Info -->
->>>>>>> origin/master
             <div class="col-md-4 mb-4">
                 <h5>Contact Us</h5>
                 <ul class="footer-links">
@@ -216,11 +206,7 @@
                     <li>Email: dinithi.com</li>
                 </ul>
 
-<<<<<<< HEAD
 
-=======
-                <!-- Social Media Icons -->
->>>>>>> origin/master
                 <div class="social-icons mt-3">
                     <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -230,11 +216,7 @@
             </div>
         </div>
 
-<<<<<<< HEAD
 
-=======
-        <!-- Footer Bottom -->
->>>>>>> origin/master
         <div class="footer-bottom">
             <p class="mb-0">&copy; 2025 Your Company Name. All rights reserved.</p>
         </div>

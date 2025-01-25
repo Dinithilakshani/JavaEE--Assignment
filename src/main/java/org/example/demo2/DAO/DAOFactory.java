@@ -1,8 +1,8 @@
-package org.example.demo2.custom;
+package org.example.demo2.DAO;
 
 
 
-import org.example.demo2.custom.impl.*;
+import org.example.demo2.DAO.custom.impl.*;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;

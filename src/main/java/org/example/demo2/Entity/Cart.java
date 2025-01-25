@@ -17,16 +17,15 @@ public class Cart {
     private Long cartId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user_id;
+    @JoinColumn(name = "user_id", nullable = false) // Maps to the `user_id` column in the `cart` table
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Product product_id;
+    @JoinColumn(name = "product_id", nullable = false) // Maps to the `product_id` column in the `cart` table
+    private Product product;
 
     @Column(nullable = false)
     private Integer quantity;
 
-    // Getters and Setters
-
+    // Add custom methods if needed (e.g., for business logic)
 }

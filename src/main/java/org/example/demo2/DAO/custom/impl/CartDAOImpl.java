@@ -1,9 +1,9 @@
-package org.example.demo2.custom.impl;
+package org.example.demo2.DAO.custom.impl;
 
 
 import org.example.demo2.Entity.Cart;
 import org.example.demo2.config.SessionFactoryConfig;
-import org.example.demo2.custom.CartDAO;
+import org.example.demo2.DAO.custom.CartDAO;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

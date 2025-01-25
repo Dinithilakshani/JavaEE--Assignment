@@ -1,33 +1,34 @@
-package org.example.demo2.custom.impl;
+package org.example.demo2.DAO.custom.impl;
 
 
 
-import org.example.demo2.Entity.Product;
+import org.example.demo2.Entity.Order;
 import org.example.demo2.config.SessionFactoryConfig;
-import org.example.demo2.custom.ProductDAO;
+import org.example.demo2.DAO.custom.OrderDAO;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class ProductDAOImpl implements ProductDAO {
+public class OrderDAOImpl implements OrderDAO {
 
     @Override
-    public boolean save(Product product) {
+    public boolean save(Order order) {
+
         try (Session session = SessionFactoryConfig.getInstance().getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.persist(product);
+            session.persist(order);
             transaction.commit();
         }
-
         return false;
     }
 
     @Override
-    public Product findById(String id) {
+    public Order findById(String id) {
+
         try (Session session = SessionFactoryConfig.getInstance().getSession()) {
-            return session.get(Product.class, id);
+            return session.get(Order.class, id);
         }catch (Exception e){
             e.printStackTrace();
             return null;
@@ -35,9 +36,9 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public List<Product> getAll() {
+    public List<Order> getAll() {
         try (Session session = SessionFactoryConfig.getInstance().getSession()) {
-            Query<Product> query = session.createQuery("FROM Product", Product.class);
+            Query<Order> query = session.createQuery("FROM Order ", Order.class);
             return query.list();
         } catch (Exception e){
             e.printStackTrace();
@@ -46,44 +47,32 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public void update(Product product) {
+    public void update(Order order) {
         try (Session session = SessionFactoryConfig.getInstance().getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.merge(product);
+            session.merge(order);
             transaction.commit();
         }
+
     }
 
     @Override
     public void delete(String id) {
         try (Session session = SessionFactoryConfig.getInstance().getSession()) {
             Transaction transaction = session.beginTransaction();
-            Product product = session.get(Product.class, id);
-            if (product != null) {
-                session.remove(product);
+            Order order = session.get(Order.class, id);
+            if (order != null) {
+                session.remove(order);
             }
             transaction.commit();
         }
     }
 
     @Override
-    public List<Product> findByName(String name) {
+    public List<Order> findByCustomer(String customerId) {
         try (Session session = SessionFactoryConfig.getInstance().getSession()) {
-            Query<Product> query = session.createQuery("FROM Product WHERE name = :name", Product.class);
-            query.setParameter("name", name);
-            return query.list();
-        }catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }
-
-    }
-
-    @Override
-    public List<Product> findByCategory(String categoryId) {
-        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
-            Query<Product> query = session.createQuery("FROM Product WHERE category.id = :categoryId", Product.class);
-            query.setParameter("categoryId", categoryId);
+            Query<Order> query = session.createQuery("FROM Order WHERE user_id = :userId", Order.class);
+            query.setParameter("userId", customerId);
             return query.list();
         }catch (Exception e){
             e.printStackTrace();

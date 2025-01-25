@@ -7,149 +7,225 @@
 
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>ShopEasy - Products</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watches - Jomashop</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        .product-card {
-            transition: transform 0.3s;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-        .product-card img {
-            height: 200px;
-            object-fit: cover;
-        }
-        .filters {
-            background-color: #f8f9fa;
-            border-radius: 8px;
+        .watch-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
             padding: 20px;
+            text-align: center;
+        }
+        .watch-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .watch-card h5 {
+            margin-top: 10px;
+        }
+        .watch-card p {
+            font-size: 14px;
+            color: #666;
+        }
+        .watch-card .btn {
+            margin-top: 10px;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+
+        .footer h5 {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
         }
     </style>
 </head>
-<body >
-<form action="productform" method="post">
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm" >
+    <div class="container" style="position: relative">
+        <a class="navbar-brand" href="#">ShopEasy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.jsp">Home</a>
+                </li>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
 
+                <li class="nav-item">
+                    <a class="nav-link" href="product.jsp">Products</a>
+                </li>
+
+
+            </ul>
+        </div>
 </nav>
+<img src="imges/img_43.png"   width="1000px"  height="600px">
 
-
-<div class="container py-5" >
+<div class="container my-5">
     <div class="row">
-
-        <div class="col-lg-3">
-            <div class="filters">
-                <h4 class="mb-4">Filters</h4>
-
-
-                <div class="mb-4">
-                    <h6>Categories</h6>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="electronics">
-                        <label class="form-check-label" for="electronics">Electronics</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="fashion">
-                        <label class="form-check-label" for="fashion">Fashion</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="home">
-                        <label class="form-check-label" for="home">Home & Living</label>
-                    </div>
-                </div>
-
-
-                <div class="mb-4">
-                    <h6>Price Range</h6>
-                    <div class="range">
-                        <input type="range" class="form-range" min="0" max="1000" id="priceRange">
-                        <div class="d-flex justify-content-between">
-                            <span>$0</span>
-                            <span>$1000</span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="mb-4">
-                    <h6>Sort By</h6>
-                    <select class="form-select">
-                        <option>Price: Low to High</option>
-                        <option>Price: High to Low</option>
-                        <option>Newest First</option>
-                        <option>Popular</option>
-                    </select>
-                </div>
+        <div class="col-md-3">
+            <div class="watch-card">
+                <img src="imges/img_29.png" alt="Watch 1">
+                <h5>TISSOT PRX Powermatic 80 Automatic Blue Dial Men's Watch T137.407.11.041.00</h5>
+                <p>31% OFF</p>
+                <p>$499.00 $725.00</p>
+                <button class="btn btn-primary">Add to Cart</button>
             </div>
         </div>
-
-
-        <div class="col-lg-9">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2>All Products</h2>
-                <div class="d-flex align-items-center">
-                    <span class="me-2">View:</span>
-                    <div class="btn-group" role="group">
-                        <button class="btn btn-outline-primary active">
-                            <i class="fas fa-grid-3"></i>
-                        </button>
-                        <button class="btn btn-outline-primary">
-                            <i class="fas fa-list"></i>
-                        </button>
-                    </div>
-                </div>
+        <div class="col-md-3">
+            <div class="watch-card">
+                <img src="imges/img_33.png" alt="Watch 2">
+                <h5>SEIKO 5 Automatic Black Arabic Dial Men's Watch SNKP21J1</h5>
+                <p>48% OFF</p>
+                <p>$179.00 $250.00</p>
+                <button class="btn btn-primary">Add to Cart</button>
             </div>
-
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card product-card h-100">
-                        <img src="/api/placeholder/300/300" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <h5 class="card-title">Smart Watch Pro</h5>
-                            <p class="text-muted mb-2">Electronics</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h6 class="mb-0">$199.99</h6>
-                                <div class="d-flex gap-2">
-                                    <button class="btn btn-outline-primary btn-sm">
-                                        <i class="fas fa-heart"></i>
-                                    </button>
-                                    <button class="btn btn-primary btn-sm">Add to Cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+        </div>
+        <div class="col-md-3">
+            <div class="watch-card">
+                <img src="imges/img_31.png" alt="Watch 3">
+                <h5>OMEGA Speedmaster Racing Automatic Chronograph Men's Watch 329.30.44.51.01.001</h5>
+                <p>28% OFF</p>
+                <p>$3,450.00 $4,800.00</p>
+                <button class="btn btn-primary">Add to Cart</button>
             </div>
-
-
-            <nav class="mt-5">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
+        </div>
+        <div class="col-md-3">
+            <div class="watch-card">
+                <img src="imges/img_32.png" alt="Watch 4">
+                <h5>SEIKO 5 Automatic Black Dial Stainless Steel Men's Watch SNXS79K1</h5>
+                <p>53% OFF</p>
+                <p>$118.00 $250.00</p>
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="watch-card">
+                <img src="imges/img_34.png" alt="Watch 1">
+                <h5>TISSOT PRX Powermatic 80 Automatic Blue Dial Men's Watch T137.407.11.041.00</h5>
+                <p>31% OFF</p>
+                <p>$499.00 $725.00</p>
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="watch-card">
+                <img src="imges/img_35.png" alt="Watch 2">
+                <h5>SEIKO 5 Automatic Black Arabic Dial Men's Watch SNKP21J1</h5>
+                <p>48% OFF</p>
+                <p>$179.00 $250.00</p>
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="watch-card">
+                <img src="imges/img_36.png" alt="Watch 3">
+                <h5>OMEGA Speedmaster Racing Automatic Chronograph Men's Watch 329.30.44.51.01.001</h5>
+                <p>28% OFF</p>
+                <p>$3,450.00 $4,800.00</p>
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="watch-card">
+                <img src="imges/img_6.png" alt="Watch 4">
+                <h5>SEIKO 5 Automatic Black Dial Stainless Steel Men's Watch SNXS79K1</h5>
+                <p>53% OFF</p>
+                <p>$118.00 $250.00</p>
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
         </div>
     </div>
 </div>
 
+<footer class="footer">
+    <div class="container">
+        <div class="row">
 
-<footer class="bg-dark text-light py-4">
+            <div class="col-md-4 mb-4">
+                <h5>About Us</h5>
+                <p>Your company description goes here. Add a brief overview of your business and its mission.</p>
+            </div>
 
+            <div class="col-md-4 mb-4">
+                <h5>Quick Links</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5>Contact Us</h5>
+                <ul class="footer-links">
+                    <li>Dinithi Lakshani</li>
+
+                    <li>Phone: 077 6789890</li>
+                    <li>Email: dinithi.com</li>
+                </ul>
+
+
+                <div class="social-icons mt-3">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="mb-0">&copy; 2025 Your Company Name. All rights reserved.</p>
+        </div>
+    </div>
 </footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-</form>
 </body>
 </html>

@@ -5,12 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-
+@NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class User {
@@ -44,6 +44,9 @@ public class User {
     @Column(length = 15)
     private String phone;
 
+    @Column(nullable = false)
+    private LocalDate dob;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders;
 
@@ -53,6 +56,4 @@ public class User {
     public enum Role {
         ADMIN, CUSTOMER
     }
-
-
 }

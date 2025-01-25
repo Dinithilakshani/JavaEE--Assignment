@@ -1,7 +1,9 @@
 package org.example.demo2.BO;
 
 
-import org.example.demo2.BO.custom.impl.UserSaveBOImpl;
+import org.example.demo2.BO.custom.impl.UserBOImpl;
+
+import static org.example.demo2.DAO.DAOFactory.DAOTypes.USER;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -10,12 +12,12 @@ public class BOFactory {
     public static BOFactory getBoFactory(){return (boFactory==null)?boFactory=new BOFactory():boFactory;}
 
     public enum BOTypes{
-        SAVE_USER
+        CATEGORY, USER
     }
     public SuperBO getBO(BOTypes types){
         switch (types){
-            case SAVE_USER:
-                return new UserSaveBOImpl();
+            case USER:
+                return new UserBOImpl();
             default:
                 return null;
         }

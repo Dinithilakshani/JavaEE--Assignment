@@ -179,15 +179,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="product.jsp">Products</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Categories</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="Dashboard.jsp">User</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="register.jsp">Customer</a>
-                </li>
+
 
             </ul>
             <div class="d-flex align-items-center">
@@ -238,7 +230,7 @@
     </button>
 </div>
 
-    </div>
+
 </section>
 
 
@@ -445,5 +437,6 @@
     </div>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</section>
 </body>
 </html>

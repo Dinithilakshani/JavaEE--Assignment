@@ -1,4 +1,4 @@
-package org.example.demo2.custom;
+package org.example.demo2.DAO;
 
 import java.util.List;
 

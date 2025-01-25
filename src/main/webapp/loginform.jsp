@@ -1,16 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Dinu
-  Date: 1/14/2025
-  Time: 4:17 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Login Page</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" >
-    <style >
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
         body {
             background-color: #333333;
             height: 100vh;
@@ -60,7 +53,8 @@
     </style>
 </head>
 <body>
-<form action="loginform" method="post">
+<%-- Display error message if it exists --%>
+<% String error = (String) session.getAttribute("error"); %>
 <div class="container h-100">
     <div class="row h-100 align-items-center justify-content-center">
         <div class="col-12">
@@ -73,15 +67,16 @@
                     <p class="text-muted">Please login to your account</p>
                 </div>
 
-                <form>
+                <!-- Login Form -->
+                <form action="login-servlet" method="post">
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                        <label for="username" class="form-label">User Name</label>
+                        <input type="text" class="form-control" id="username" name="Username" placeholder="Enter your username" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                        <input type="password" class="form-control" id="password"  name="Password" placeholder="Enter your password" required>
                     </div>
 
                     <div class="mb-3 d-flex justify-content-between">
@@ -115,10 +110,18 @@
             </div>
         </div>
     </div>
+
+    <% if (error != null) { %>
+    <!-- Alert for invalid credentials -->
+    <div class="alert alert-danger alert-dismissible fade show position-absolute top-50 start-50 translate-middle text-center w-25" style="z-index: 2;" role="alert">
+        <strong>Invalid Credentials!</strong><br> <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% session.removeAttribute("error"); %>  <!-- Clear error after displaying -->
+    <% } %>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
-</form>
 </body>
 </html>

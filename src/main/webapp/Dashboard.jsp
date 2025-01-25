@@ -85,6 +85,41 @@
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm" >
+    <div class="container" style="position: relative">
+        <a class="navbar-brand" href="#">ShopEasy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.jsp">Home</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="product.jsp">Products</a>
+                </li>
+
+
+            </ul>
+            <div class="d-flex align-items-center">
+                <form class="d-flex me-3">
+                    <input class="form-control me-2" type="search" placeholder="Search products...">
+                    <button class="btn btn-outline-primary" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <a href="#" class="btn btn-outline-primary me-2">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge bg-primary">3</span>
+                </a>
+                <a href="loginform.jsp" class="btn btn-primary">Login</a>
+            </div>
+        </div>
+    </div>
+</nav>
 <div class="container-fluid">
     <div class="row">
         <div class="col-3 sidebar py-4">
